@@ -1,24 +1,52 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { createRef } from 'react';
+
+// Error Boundaries
+import ErrorBoundary from './AdvancedGuides/ErrorBoundaries/ErrorBoundary';
+import BuggyCounter from './AdvancedGuides/ErrorBoundaries/BuggyCounter';
+// Forwarding refs
+import FancyButton from './AdvancedGuides/FowardingRefs/FancyButton';
+
+// Ref and the dom
+import CustomTextInput from './AdvancedGuides/RefAndTheDom/CustomTextInput';
+import AutoFocusTextInput from './AdvancedGuides/RefAndTheDom/AutoFocusTextInput';
+import FCustomTextInput from './AdvancedGuides/RefAndTheDom/FCustomTextInput';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <div>
+      <hr />
+      <h1>Error Boundaries</h1>
+      <ErrorBoundary>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          These two counters are inside the same error boundary. If one crashes,
+          the error boundary will replace both of them.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <BuggyCounter />
+        <BuggyCounter />
+      </ErrorBoundary>
+      <hr />
+      <p>
+        These two counters are each inside of their own error boundary. So if
+        one crashes, the other is not affected.
+      </p>
+      <ErrorBoundary>
+        <BuggyCounter />
+      </ErrorBoundary>
+      <ErrorBoundary>
+        <BuggyCounter />
+      </ErrorBoundary>
+      <hr />
+      <h1>Forwarding Refs</h1>
+      <h5>Fancy Button</h5>
+      <FancyButton ref={ref => createRef()}>Click Me Plz</FancyButton>
+      <hr />
+      <h1>Ref and The Dom</h1>
+      <h5>Custom Text Input</h5>
+      <CustomTextInput />
+      <h5>Auto Focus Custom Text Input</h5>
+      <AutoFocusTextInput />
+      <h5>Function Custom Text Input</h5>
+      <FCustomTextInput />
     </div>
   );
 }

@@ -1,8 +1,14 @@
 import React, { createRef } from 'react';
 
+// Composition
+import FancyBorder from './MainConcepts/Composition/FancyBorder';
+import SplitPane from './MainConcepts/Composition/SplitPane';
+import Dialog from './MainConcepts/Composition/Dialog';
+
 // Error Boundaries
 import ErrorBoundary from './AdvancedGuides/ErrorBoundaries/ErrorBoundary';
 import BuggyCounter from './AdvancedGuides/ErrorBoundaries/BuggyCounter';
+
 // Forwarding refs
 import FancyButton from './AdvancedGuides/FowardingRefs/FancyButton';
 
@@ -14,6 +20,20 @@ import FCustomTextInput from './AdvancedGuides/RefAndTheDom/FCustomTextInput';
 function App() {
   return (
     <div>
+      <hr />
+      <h1>Composition</h1>
+      <FancyBorder color="blue">
+        <h1 className="Dialog-title">Welcome</h1>
+        <p className="Dialog-message">Thank you for visiting our spacecraft!</p>
+      </FancyBorder>
+
+      <SplitPane left={<h1>Left Pane</h1>} right={<h1>Right Pane</h1>} />
+
+      <Dialog
+        title="Welcome"
+        message="Thank you for visiting our spacecraft!"
+      />
+
       <hr />
       <h1>Error Boundaries</h1>
       <ErrorBoundary>

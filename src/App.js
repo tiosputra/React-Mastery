@@ -5,6 +5,9 @@ import FancyBorder from './MainConcepts/Composition/FancyBorder';
 import SplitPane from './MainConcepts/Composition/SplitPane';
 import Dialog from './MainConcepts/Composition/Dialog';
 
+// Thinking in React
+import FilterableProductTable from './MainConcepts/ThinkingInReact/FilterableProductTable';
+
 // Error Boundaries
 import ErrorBoundary from './AdvancedGuides/ErrorBoundaries/ErrorBoundary';
 import BuggyCounter from './AdvancedGuides/ErrorBoundaries/BuggyCounter';
@@ -33,6 +36,9 @@ function App() {
         title="Welcome"
         message="Thank you for visiting our spacecraft!"
       />
+      <hr />
+      <h1>Thinking in React</h1>
+      <FilterableProductTable />
 
       <hr />
       <h1>Error Boundaries</h1>
